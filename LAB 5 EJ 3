@@ -1,0 +1,57 @@
+#include <stdio.h>
+
+int main() {
+    char nombre[100];
+    int antiguedad;
+    float sueldoBasico, bono, totalGanado, afp, rciva, salarioNeto;
+    
+    // Leer datos del trabajador
+    printf("Ingrese el nombre del trabajador: ");
+    fgets(nombre, sizeof(nombre), stdin);
+    printf("Ingrese los años de antigüedad: ");
+    scanf("%d", &antiguedad);
+    printf("Ingrese el sueldo básico (Bs): ");
+    scanf("%f", &sueldoBasico);
+    
+    // Calcular bono por antigüedad
+    if (antiguedad > 5) {
+        bono = sueldoBasico * 0.10;
+    } else {
+        bono = 0;
+    }
+    
+    totalGanado = sueldoBasico + bono;
+    
+    // Descuento obligatorio AFP (12.71%)
+    afp = totalGanado * 0.1271;
+    
+    // Impuesto RC-IVA solo si total ganado supera 9500 Bs
+    if (totalGanado > 9500) {
+        float excedente = totalGanado - 9500;
+        rciva = excedente * 0.13;
+    } else {
+        rciva = 0;
+    }
+    
+    // Calcular salario neto
+    salarioNeto = totalGanado - afp - rciva;
+    
+    // Mostrar resultados
+    printf("\n--- Liquidación de Sueldo ---\n");
+    printf("Trabajador: %s", nombre);
+    printf("Sueldo básico: %.2f Bs\n", sueldoBasico);
+    printf("Bono antigüedad: %.2f Bs\n", bono);
+    printf("Total ganado: %.2f Bs\n", totalGanado);
+    printf("Descuento AFP (12.71%%): %.2f Bs\n", afp);
+    
+    if (rciva > 0) {
+        printf("Descuento RC-IVA (13%% sobre excedente): %.2f Bs\n", rciva);
+    } else {
+        printf("Descuento RC-IVA: 0.00 Bs (no supera 9500 Bs)\n");
+    }
+    
+    printf("------------------------------\n");
+    printf("Salario Neto: %.2f Bs\n", salarioNeto);
+    
+    return 0;
+}
