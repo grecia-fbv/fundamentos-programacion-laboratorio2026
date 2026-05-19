@@ -17,14 +17,14 @@ int contarDigitosPares(int num) {
 
 int main() {
     int numero;
-    cout << "Ingrese un número entero positivo: ";
+    cout << "Ingrese un nÃºmero entero positivo: ";
     cin >> numero;
 
     if (numero >= 0) {
         int pares = contarDigitosPares(numero);
-        cout << "El total de dígitos pares encontrados es: " << pares << endl;
+        cout << "El total de dÃ­gitos pares encontrados es: " << pares << endl;
     } else {
-        cout << "Error: El número debe ser positivo." << endl;
+        cout << "Error: El nÃºmero debe ser positivo." << endl;
     }
 
     return 0;
