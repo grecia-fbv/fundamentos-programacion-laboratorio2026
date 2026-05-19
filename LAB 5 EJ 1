@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <math.h> // Incluida para usar las funciones de matem·ticas
+#include <math.h> // Incluida para usar las funciones de matem√°ticas
 
 int main() {
 // Definir variables
